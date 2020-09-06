@@ -3,7 +3,7 @@ type LowerAlpha = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k
 type UpperAlpha = `${uppercase LowerAlpha}`
 type Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
-type TrimStart<S> =
+export type TrimStart<S> =
   S extends '' ? '' :
   S extends `${Whitespace}${infer Rest}` ? TrimStart<Rest> : S
 
@@ -96,23 +96,4 @@ type ParseChildren<I, Children extends any[]> =
   I extends `</${TagNameChars}${infer _}` ? [Children, I] :
   ParseText<I, ''> extends [infer Text, infer Rest] ? ParseChildren<Rest, [...Children, Text]> : never
 
-type ParseDocument<I> = ParseChildren<I, []>[0]
-
-type Html = `
-  <div id=main>
-    <span class="text-center">
-      HTML parser!
-    </span>
-    <br>
-  </div>
-`
-type AST = ParseDocument<TrimStart<Html>>
-type VoidElementExample = ParseDocument<'<br>'>
-type InvalidVoidElementExample = ParseDocument<'<div>'>  // invalid HTML, so it's `never`
-type UnquotedAttributeExample = ParseDocument<'<div id=main></div>'>
-type SingleQuoteAttributeExample = ParseDocument<'<div id=\'main\'></div>'>
-type DoubleQuoteAttributeExample = ParseDocument<'<div id="main"></div>'>
-type SelfCloseTag = ParseDocument<'<div class="e" />'>
-type NumericTagName = ParseDocument<'<2 a=b></2>'>  // this is valid, not a bug
-type PureText = ParseDocument<'custom text'>
-type MultiTags = ParseDocument<'<h1 class="heading-1">1</h1><h2 class="heading-2">2</h2>'>
+export type ParseDocument<I> = ParseChildren<I, []>[0]
