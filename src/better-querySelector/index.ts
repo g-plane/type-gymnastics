@@ -31,10 +31,15 @@ type ParseSelector<I extends string> =
 function querySelector<
   S extends string,
   E extends Element = ParseSelector<S>
->(selector: S, element?: Element | Document) {
-  const el = element ?? document
+>(selector: S, element: Element | Document = document) {
+  return element.querySelector<E>(selector)
+}
 
-  return el.querySelector<E>(selector)
+function querySelectorAll<
+  S extends string,
+  E extends Element = ParseSelector<S>
+>(selector: S, element: Element | Document = document) {
+  return element.querySelectorAll<E>(selector)
 }
 
 const el = querySelector('.container > #sign-up-form > div#notice, span.tip')
