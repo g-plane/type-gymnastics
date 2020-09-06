@@ -17,7 +17,7 @@ type Postprocess<I> =
   I extends `${infer Tag}#${infer Rest}` ? Postprocess<Tag> :
   I extends `${infer Tag}[${infer Rest}` ? Postprocess<Tag> : I
 
-type ParseSelector<I extends string> =
+export type ParseSelector<I extends string> =
   string extends I ? Element :
   Preprocess<I> extends infer I ?
   I extends `${infer Left}${Combinators}${infer Right}` ?
@@ -28,18 +28,16 @@ type ParseSelector<I extends string> =
   Tags extends keyof SVGElementTagNameMap ? SVGElementTagNameMap[Tags] :
   Element : never : never : never
 
-function querySelector<
+export function querySelector<
   S extends string,
   E extends Element = ParseSelector<S>
 >(selector: S, element: Element | Document = document) {
   return element.querySelector<E>(selector)
 }
 
-function querySelectorAll<
+export function querySelectorAll<
   S extends string,
   E extends Element = ParseSelector<S>
 >(selector: S, element: Element | Document = document) {
   return element.querySelectorAll<E>(selector)
 }
-
-const el = querySelector('.container > #sign-up-form > div#notice, span.tip')
