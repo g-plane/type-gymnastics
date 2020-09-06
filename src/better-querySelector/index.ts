@@ -12,15 +12,21 @@ type Preprocess<I extends string> =
   I extends `${infer L}, ${infer R}` ?
   Preprocess<`${L},${R}`> : Trim<I>
 
+type Postprocess<I> =
+  I extends `${infer Tag}.${infer Rest}` ? Postprocess<Tag> :
+  I extends `${infer Tag}#${infer Rest}` ? Postprocess<Tag> :
+  I extends `${infer Tag}[${infer Rest}` ? Postprocess<Tag> : I
+
 type ParseSelector<I extends string> =
   string extends I ? Element :
   Preprocess<I> extends infer I ?
   I extends `${infer Left}${Combinators}${infer Right}` ?
   ParseSelector<Right> :
   Split<I> extends infer Tags ?
+  Postprocess<Tags> extends infer Tags ?
   Tags extends keyof HTMLElementTagNameMap ? HTMLElementTagNameMap[Tags] :
   Tags extends keyof SVGElementTagNameMap ? SVGElementTagNameMap[Tags] :
-  Element : never : never
+  Element : never : never : never
 
 function querySelector<
   S extends string,
@@ -31,4 +37,4 @@ function querySelector<
   return el.querySelector<E>(selector)
 }
 
-const el = querySelector('.container > #sign-up-form > div, span')
+const el = querySelector('.container > #sign-up-form > div#notice, span.tip')
