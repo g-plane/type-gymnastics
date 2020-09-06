@@ -1,10 +1,18 @@
-# 🏆 awesome-ts-type-gymnastics
+# 🤸 type-gymnastics
 
 This repository collects some wonderful TypeScript type gymnastics code snippets.
 
 ## 🔍 View source code
 
 All the source code are under `src` directory.
+
+It's recommended to view them at local with these steps:
+
+1. Make sure you've installed Git, Node.js and Visual Studio Code.
+2. Clone this repository with Git.
+3. Run `npm i` or `yarn` to install TypeScript.
+4. Open this repository in Visual Studio Code.
+5. Enjoy it!
 
 ## 📝 Contributing
 
