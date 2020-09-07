@@ -1,9 +1,8 @@
 <div align=center>
   <img src="./logo.webp" width="128">
   <h1>Type Gymnastics</h1>
+  <p>Collection of wonderful TypeScript type gymnastics code snippets.</p>
 </div>
-
-This repository collects some wonderful TypeScript type gymnastics code snippets.
 
 ## 📚 Overview List
 
