@@ -1,7 +1,5 @@
 <div align=center>
   <img src="./logo.webp" width="128">
-  <br>
-  <br>
   <h1>Type Gymnastics</h1>
 </div>
 
