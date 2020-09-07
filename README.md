@@ -1,4 +1,9 @@
-# 🤸 type-gymnastics
+<div align=center>
+  <img src="./logo.webp" width="128">
+  <br>
+  <br>
+  <h1>Type Gymnastics</h1>
+</div>
 
 This repository collects some wonderful TypeScript type gymnastics code snippets.
 
@@ -47,3 +52,5 @@ We assume your code published under MIT License.
 ## 📜 License
 
 MIT License
+
+Logo is modified from Picture [Day 5 Gymnastics (19 Aug 2010)](https://www.flickr.com/photos/15322733@N05/4907865188). "Day 5 Gymnastics (19 Aug 2010)" by Singapore 2010 Youth Olympic Games is licensed with CC BY-NC 2.0.
