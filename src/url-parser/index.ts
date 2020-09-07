@@ -3,17 +3,26 @@ type ParseProtocol<I, AST> =
 
 type ParseAuth<I, AST> =
   I extends `${infer A}@${infer Rest}` ?
-  A extends `${infer U}:${infer P}` ? [AST & { username: U, password: P }, Rest] :
+  A extends '' ? never :
+  A extends `${infer U}:${infer P}` ?
+  U extends '' ? never :
+  [AST & { username: U, password: P }, Rest] :
   [AST & { username: A }, Rest] : [AST, I]
 
 type ParseHost<I, AST> =
   I extends `${infer H}/${infer Rest}` ?
-  H extends `${infer Name}:${infer Port}` ?
-  ParsePort<Port> extends never ? never :
+  ParseHostnameAndPort<H> extends infer Host ?
+  Host extends never ? never :
+  [AST & Host, Rest] : never :
+  ParseHostnameAndPort<I> extends infer Host ?
+  Host extends never ? never :
+  [AST & Host, ''] : never
+type ParseHostnameAndPort<I> =
+  I extends `${infer Name}:${infer Port}` ?
   ParsePort<Port> extends infer Port ?
-  [AST & { hostname: Name, port: Port }, Rest] :
-  [AST & { hostname: H }, Rest] :
-  never : never
+  Port extends never ? never :
+  { hostname: Name, port: Port } : never :
+  { hostname: I }
 type Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 type ParsePort<I, O extends string = ''> =
   I extends '' ? O :
@@ -38,18 +47,25 @@ type ParseQueryItems<I> =
   I extends `${infer K}=${infer V}` ? [{ key: K, value: V }] :
   I extends `${infer K}` ? [{ key: K, value: null }] : []
 
-type ParseHash<I, AST> =
-  I extends `#${infer H}` ? [AST & { hash: `#${H}` }] : [AST]
+type ParseHash<I, AST> = I extends `#${infer H}` ? AST & { hash: `#${H}` } : AST
 
-type ParseURL<I extends string> =
-  ParseProtocol<I, {}> extends [infer AST, infer Rest] ?
-  ParseAuth<Rest, AST> extends [infer AST, infer Rest] ?
-  ParseHost<Rest, AST> extends [infer AST, infer Rest] ?
-  ParsePathname<Rest, AST> extends [infer AST, infer Rest] ?
-  ParseQuery<Rest, AST> extends [infer AST, infer Rest] ?
-  ParseHash<Rest, AST> extends [infer AST] ? AST :
-  never : never : never : never : never : never
-
-type Merge<T> = { [P in keyof T as T[P] extends '' ? never : P]: T[P] }
-
-type Result = Merge<ParseURL<'https://username:password@example.com:443/p/a/t/h?k1=v1&k2=v2#h'>>
+export type ParseURL<I extends string> =
+  ParseProtocol<I, {}> extends infer Result ?
+  Result extends never ? never :
+  Result extends [infer AST, infer Rest] ?
+  ParseAuth<Rest, AST> extends infer Result ?
+  Result extends never ? never :
+  Result extends [infer AST, infer Rest] ?
+  ParseHost<Rest, AST> extends infer Result ?
+  Result extends never ? never :
+  Result extends [infer AST, infer Rest] ?
+  ParsePathname<Rest, AST> extends infer Result ?
+  Result extends never ? never :
+  Result extends [infer AST, infer Rest] ?
+  ParseQuery<Rest, AST> extends infer Result ?
+  Result extends never ? never :
+  Result extends [infer AST, infer Rest] ?
+  ParseHash<Rest, AST> extends infer AST ?
+  keyof AST extends never ? never :
+  { [P in keyof AST as AST[P] extends '' ? never : P]: AST[P] } :
+  never : never : never : never : never : never : never : never : never : never : never
