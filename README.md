@@ -29,10 +29,7 @@ It's recommended to view them at local with these steps:
 Create a new empty directory under `src` directory
 and give it a descriptive and short name,
 then put your source code in it.
-
-Don't forget to put a `tsconfig.json` file into your directory,
-and let it extend from the `tsconfig.json` file of root directory.
-Then, update the `files` field of `tsconfig.json`.
+Also, please consider adding some tests.
 
 Optionally, you can put a readme in that directory to introduce
 your code in detail.
