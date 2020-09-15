@@ -3,8 +3,6 @@ import { ParseURL } from '.'
 
 type Result = ParseURL<'https://username:password@example.com:443/p/a/t/h?k1=v1&k2=v2#h'>
 
-type t = ParseURL<'https://:p@github.com/'>
-
 type Tests = [
   Expect<Equal<Result, {
     protocol: 'https',
