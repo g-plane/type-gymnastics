@@ -10,6 +10,7 @@
 - [C-printf Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/c-printf-parser) by [Pig Fang](https://github.com/g-plane) - Parse placeholders like `%d` and `%s` for a `printf` format string.
 - [Query String Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/query-string-parser) by [Pig Fang](https://github.com/g-plane) - Parse URL query string into an object literal type.
 - [Spec-compliant HTML Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/spec-compliant-html-parser) by [Pig Fang](https://github.com/g-plane) - An HTML parser conforms [WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/syntax.html#syntax) (may not be fully).
+- [Tuple Slice] by [Pig Fang](https://github.com/g-plane) - `Array#slice` implementation at type level.
 - [URL Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/url-parser) by [Pig Fang](https://github.com/g-plane) - Parse a URL into an object literal type with each component of the URL.
 
 ## 🔍 View Source Code
