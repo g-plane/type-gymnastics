@@ -17,6 +17,8 @@ type Tests = [
   Expect<Equal<ParseSelector<'span.text-center'>, HTMLSpanElement>>,
   Expect<Equal<ParseSelector<'button#submit'>, HTMLButtonElement>>,
   Expect<Equal<ParseSelector<'input[type=email]'>, HTMLInputElement>>,
+  Expect<Equal<ParseSelector<'.wrapper div.box'>, HTMLDivElement>>,
+  Expect<Equal<ParseSelector<'.wrapper div.box, .sidebar div.alert'>, HTMLDivElement>>,
   Expect<Equal<
     ParseSelector<'.container > #sign-up-form > div#notice, span.tip'>,
     HTMLDivElement | HTMLSpanElement
