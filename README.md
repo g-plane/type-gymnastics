@@ -11,7 +11,7 @@
 - [Integers Comparator](https://github.com/g-plane/type-gymnastics/tree/master/src/integers-comparator) by [Pig Fang](https://github.com/g-plane) - Compare two integers that can be positive or negative or zero.
 - [Query String Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/query-string-parser) by [Pig Fang](https://github.com/g-plane) - Parse URL query string into an object literal type.
 - [Spec-compliant HTML Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/spec-compliant-html-parser) by [Pig Fang](https://github.com/g-plane) - An HTML parser conforms [WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/syntax.html#syntax) (may not be fully).
-- [Tuple Slice] by [Pig Fang](https://github.com/g-plane) - `Array#slice` implementation at type level.
+- [Tuple Slice](https://github.com/g-plane/type-gymnastics/tree/master/src/tuple-slice) by [Pig Fang](https://github.com/g-plane) - `Array#slice` implementation at type level.
 - [URL Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/url-parser) by [Pig Fang](https://github.com/g-plane) - Parse a URL into an object literal type with each component of the URL.
 
 ## 🔍 View Source Code
