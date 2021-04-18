@@ -1,6 +1,8 @@
-type GettersType<G extends Record<string, unknown>> = {
-  [K in keyof G]: G[K] extends () => infer R ? R : never
-}
+type GettersType<G extends Record<string, unknown>> = Readonly<
+  {
+    [K in keyof G]: G[K] extends () => infer R ? R : never
+  }
+>
 
 type DefineStore<
   State,
@@ -9,7 +11,7 @@ type DefineStore<
 > = {
   id: string
   state: () => State
-  getters?: Getters & ThisType<State & GettersType<Getters>>
+  getters?: Getters & ThisType<Readonly<State> & GettersType<Getters>>
   actions?: Actions & ThisType<State & GettersType<Getters> & Actions>
 }
 

@@ -9,6 +9,9 @@ const store = defineStore({
   }),
   getters: {
     stringifiedNum() {
+      // @ts-expect-error
+      this.num += 1
+
       return this.num.toString()
     },
     parsedNum() {
@@ -25,6 +28,9 @@ const store = defineStore({
     },
     reset() {
       this.num = 0
+
+      // @ts-expect-error
+      this.parsedNum = 0
 
       return true
     },
