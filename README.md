@@ -13,6 +13,7 @@
 - [Spec-compliant HTML Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/spec-compliant-html-parser) by [Pig Fang](https://github.com/g-plane) - An HTML parser conforms [WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/syntax.html#syntax) (may not be fully).
 - [Tuple Slice](https://github.com/g-plane/type-gymnastics/tree/master/src/tuple-slice) by [Pig Fang](https://github.com/g-plane) - `Array#slice` implementation at type level.
 - [URL Parser](https://github.com/g-plane/type-gymnastics/tree/master/src/url-parser) by [Pig Fang](https://github.com/g-plane) - Parse a URL into an object literal type with each component of the URL.
+- [Pinia](https://github.com/g-plane/type-gymnastics/tree/master/src/pinia) by [Pig Fang](https://github.com/g-plane) - Type-level function which is similar to [Pinia](https://github.com/posva/pinia).
 
 ## 🔍 View Source Code
 
