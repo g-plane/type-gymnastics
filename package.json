@@ -3,6 +3,10 @@
   "scripts": {
     "test": "tsc -p ."
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "devDependencies": {
     "@type-challenges/utils": "^0.1.0",
     "typescript": "^4.2.3"
