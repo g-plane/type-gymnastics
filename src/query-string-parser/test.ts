@@ -16,11 +16,11 @@ type Tests = [
   Expect<Equal<Example1, {}>>,
   Expect<Equal<Example2, { k1: true }>>,
   Expect<Equal<Example3, { k1: true }>>,
-  Expect<Equal<Example4, { k1: true, k2: true }>>,
+  Expect<Equal<Example4, { k1: true; k2: true }>>,
   Expect<Equal<Example5, { k1: 'v1' }>>,
   Expect<Equal<Example6, { k1: ['v1', 'v2'] }>>,
-  Expect<Equal<Example7, { k1: 'v1', k2: 'v2' }>>,
-  Expect<Equal<Example8, { k1: ['v1', 'v2'], k2: 'v2' }>>,
-  Expect<Equal<Example9, { k1: 'v1', k2: true }>>,
-  Expect<Equal<Example10, { k1: 'v1' }>>,
+  Expect<Equal<Example7, { k1: 'v1'; k2: 'v2' }>>,
+  Expect<Equal<Example8, { k1: ['v1', 'v2']; k2: 'v2' }>>,
+  Expect<Equal<Example9, { k1: 'v1'; k2: true }>>,
+  Expect<Equal<Example10, { k1: 'v1' }>>
 ]

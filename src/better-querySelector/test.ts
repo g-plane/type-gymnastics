@@ -18,12 +18,17 @@ type Tests = [
   Expect<Equal<ParseSelector<'button#submit'>, HTMLButtonElement>>,
   Expect<Equal<ParseSelector<'input[type=email]'>, HTMLInputElement>>,
   Expect<Equal<ParseSelector<'.wrapper div.box'>, HTMLDivElement>>,
-  Expect<Equal<ParseSelector<'.wrapper div.box, .sidebar div.alert'>, HTMLDivElement>>,
-  Expect<Equal<
-    ParseSelector<'.container > #sign-up-form > div#notice, span.tip'>,
-    HTMLDivElement | HTMLSpanElement
-  >>,
+  Expect<
+    Equal<ParseSelector<'.wrapper div.box, .sidebar div.alert'>, HTMLDivElement>
+  >,
+  Expect<
+    Equal<
+      ParseSelector<'.container > #sign-up-form > div#notice, span.tip'>,
+      HTMLDivElement | HTMLSpanElement
+    >
+  >
 ]
 
-const el: HTMLDivElement | HTMLSpanElement | null =
-  querySelector('.container > #sign-up-form > div#notice, span.tip')
+const el: HTMLDivElement | HTMLSpanElement | null = querySelector(
+  '.container > #sign-up-form > div#notice, span.tip'
+)

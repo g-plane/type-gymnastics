@@ -9,5 +9,5 @@ type Tests = [
   Expect<Equal<Slice<Arr, -2>, [4, 5]>>,
   Expect<Equal<Slice<Arr, 2, 4>, [3, 4]>>,
   Expect<Equal<Slice<Arr, 1, -2>, [2, 3]>>,
-  Expect<Equal<Slice<Arr, -4, -2>, [2, 3]>>,
+  Expect<Equal<Slice<Arr, -4, -2>, [2, 3]>>
 ]
