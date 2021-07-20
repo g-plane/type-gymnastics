@@ -19,7 +19,7 @@
 
 All the source code are under `src` directory.
 
-It's recommended to view them at local with these steps:
+It's recommended to view them locally with these steps:
 
 1. Make sure you've installed Git, Node.js and Visual Studio Code.
 2. Clone this repository with Git.
